@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>test2</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- 过滤文字编码 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>com.yao.filter.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 验证登录过滤 -->
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.yao.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<!-- 登录检查 -->
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.yao.servlet.loginservlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 初始页面 -->
+	<servlet>
+		<servlet-name>WorkQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.workqueryservlet.WorkQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WorkQueryServlet</servlet-name>
+		<url-pattern>/WorkQueryServlet</url-pattern>
+	</servlet-mapping>
+ 	<!-- 客户信息 -->
+ 	<servlet>
+		<servlet-name>CustomerQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerQueryServlet</servlet-name>
+		<url-pattern>/CustomerQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 详细客户信息 -->
+	<servlet>
+		<servlet-name>CustomerQueryMoreServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerQueryMoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerQueryMoreServlet</servlet-name>
+		<url-pattern>/CustomerQueryMoreServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 进入修改客户信息页面 -->
+	<servlet>
+		<servlet-name>CustomerUpdateServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerUpdateServlet</servlet-name>
+		<url-pattern>/CustomerUpdateServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 进行修改客户信息 -->
+	<servlet>
+		<servlet-name>CustomerUpdateServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerUpdateServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerUpdateServlet2</servlet-name>
+		<url-pattern>/CustomerUpdateServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 删除客户 -->
+	<servlet>
+		<servlet-name>CustomerDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerDeleteServlet</servlet-name>
+		<url-pattern>/CustomerDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入添加用户界面 -->
+	<servlet>
+		<servlet-name>CustomerAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerAddServlet</servlet-name>
+		<url-pattern>/CustomerAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 添加用户 -->
+	<servlet>
+		<servlet-name>CustomerAddServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerAddServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerAddServlet2</servlet-name>
+		<url-pattern>/CustomerAddServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 客户分配 -->
+	<servlet>
+		<servlet-name>CustomerQueryNoAdmeasureServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerQueryNoAdmeasureServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerQueryNoAdmeasureServlet</servlet-name>
+		<url-pattern>/CustomerQueryNoAdmeasureServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入分配页面 -->
+	<servlet>
+		<servlet-name>CustomerUpNoAdmeasureServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerUpNoAdmeasureServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerUpNoAdmeasureServlet</servlet-name>
+		<url-pattern>/CustomerUpNoAdmeasureServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 分配页面的提交按钮 -->
+	<servlet>
+		<servlet-name>CustomerUpdateNoAdmeasureServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerUpdateNoAdmeasureServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerUpdateNoAdmeasureServlet</servlet-name>
+		<url-pattern>/CustomerUpdateNoAdmeasureServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入分配所有所选客户页面 -->
+	<servlet>
+		<servlet-name>CustomerUpdateAllNoAdmeasureServlet</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerUpdateAllNoAdmeasureServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerUpdateAllNoAdmeasureServlet</servlet-name>
+		<url-pattern>/CustomerUpdateAllNoAdmeasureServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现分配所有选择的客户 -->
+	<servlet>
+		<servlet-name>CustomerUpdateAllNoAdmeasureServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.customerservlet.CustomerUpdateAllNoAdmeasureServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerUpdateAllNoAdmeasureServlet2</servlet-name>
+		<url-pattern>/CustomerUpdateAllNoAdmeasureServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户关怀 -->
+	<servlet>
+		<servlet-name>CustomerCareFindServlet</servlet-name>
+		<servlet-class>com.yao.servlet.careservlet.CustomerCareFindServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerCareFindServlet</servlet-name>
+		<url-pattern>/CustomerCareFindServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入添加客户关怀 -->
+	<servlet>
+		<servlet-name>CustomerCareAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.careservlet.CustomerCareAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerCareAddServlet</servlet-name>
+		<url-pattern>/CustomerCareAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加客户关怀 -->
+	<servlet>
+		<servlet-name>CustomerCareAddServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.careservlet.CustomerCareAddServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerCareAddServlet2</servlet-name>
+		<url-pattern>/CustomerCareAddServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户关怀修改页面 -->
+	<servlet>
+		<servlet-name>customerRedactCareUpdateServlet</servlet-name>
+		<servlet-class>com.yao.servlet.careservlet.customerRedactCareUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>customerRedactCareUpdateServlet</servlet-name>
+		<url-pattern>/customerRedactCareUpdateServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现修改客户关怀 -->
+	<servlet>
+		<servlet-name>customerRedactCareUpdateServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.careservlet.customerRedactCareUpdateServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>customerRedactCareUpdateServlet2</servlet-name>
+		<url-pattern>/customerRedactCareUpdateServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 实现删除客户关怀 -->
+	<servlet>
+		<servlet-name>customerDeleteCareDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.careservlet.customerDeleteCareDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>customerDeleteCareDeleteServlet</servlet-name>
+		<url-pattern>/customerDeleteCareDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户类型 -->
+	<servlet>
+		<servlet-name>CustomerTypeQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.typeservlet.CustomerTypeQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerTypeQueryServlet</servlet-name>
+		<url-pattern>/CustomerTypeQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 添加客户类型 -->
+	<servlet>
+		<servlet-name>CustomerTypeAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.typeservlet.CustomerTypeAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerTypeAddServlet</servlet-name>
+		<url-pattern>/CustomerTypeAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 删除客户类型 -->
+	<servlet>
+		<servlet-name>CustomerTypeDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.typeservlet.CustomerTypeDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerTypeDeleteServlet</servlet-name>
+		<url-pattern>/CustomerTypeDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户状态 -->
+	<servlet>
+		<servlet-name>CustomerConditionQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.condition.CustomerConditionQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerConditionQueryServlet</servlet-name>
+		<url-pattern>/CustomerConditionQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 添加客户状态 -->
+	<servlet>
+		<servlet-name>CustomerConditionAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.condition.CustomerConditionAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerConditionAddServlet</servlet-name>
+		<url-pattern>/CustomerConditionAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 删除客户状态 -->
+	<servlet>
+		<servlet-name>CustomerConditionDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.condition.CustomerConditionDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomerConditionDeleteServlet</servlet-name>
+		<url-pattern>/CustomerConditionDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户来源 -->
+	<servlet>
+		<servlet-name>source</servlet-name>
+		<servlet-class>com.yao.servlet.sourceservlet.SourceQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>source</servlet-name>
+		<url-pattern>/source</url-pattern>
+	</servlet-mapping>
+	<!-- 添加客户来源 -->
+	<servlet>
+		<servlet-name>add</servlet-name>
+		<servlet-class>com.yao.servlet.sourceservlet.AddSourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>add</servlet-name>
+		<url-pattern>/add</url-pattern>
+	</servlet-mapping>
+	<!-- 删除客户来源 -->
+	<servlet>
+		<servlet-name>delete</servlet-name>
+		<servlet-class>com.yao.servlet.sourceservlet.DeleteSourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delete</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户联系记录 -->
+	<servlet>
+		<servlet-name>showLinkRecord</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.ShowLinkRecordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>showLinkRecord</servlet-name>
+		<url-pattern>/showLinkRecord</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户联系记录添加 -->
+	<servlet>
+		<servlet-name>AddLinkRecord</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.AddLinkRecordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddLinkRecord</servlet-name>
+		<url-pattern>/AddLinkRecord</url-pattern>
+	</servlet-mapping>
+	<!-- 实现客户联系记录添加 -->
+	<servlet>
+		<servlet-name>AddRecord</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.AddLinkRecordServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddRecord</servlet-name>
+		<url-pattern>/AddRecord</url-pattern>
+	</servlet-mapping>
+	<!-- 删除客户联系记录 -->
+	<servlet>
+		<servlet-name>deletelinkrecord</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.DeleteRecordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deletelinkrecord</servlet-name>
+		<url-pattern>/deletelinkrecord</url-pattern>
+	</servlet-mapping>
+	<!-- 进入联系人,查询联系人 -->
+	<servlet>
+		<servlet-name>LinkManQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.ShowLinkServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LinkManQueryServlet</servlet-name>
+		<url-pattern>/LinkManQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入添加联系人 -->
+	<servlet>
+		<servlet-name>LinkManAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.AddLinkManServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LinkManAddServlet</servlet-name>
+		<url-pattern>/LinkManAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加联系人 -->
+	<servlet>
+		<servlet-name>LinkManAddServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.AddLinkManServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LinkManAddServlet2</servlet-name>
+		<url-pattern>/LinkManAddServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 删除联系人 -->
+	<servlet>
+		<servlet-name>LinkManDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.DeleteLinkManServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LinkManDeleteServlet</servlet-name>
+		<url-pattern>/LinkManDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入编辑联系人 -->
+	<servlet>
+		<servlet-name>LinkManUpdateServlet</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.LinkManUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LinkManUpdateServlet</servlet-name>
+		<url-pattern>/LinkManUpdateServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现编辑联系人 -->
+	<servlet>
+		<servlet-name>LinkManUpdateServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.linkedservlet.LinkManUpdateServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LinkManUpdateServlet2</servlet-name>
+		<url-pattern>/LinkManUpdateServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 进入员工信息 -->
+	<servlet>
+		<servlet-name>ShowAllEmployees</servlet-name>
+		<servlet-class>com.yao.servlet.userservlet.ShowAllEmployees</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowAllEmployees</servlet-name>
+		<url-pattern>/ShowAllEmployees</url-pattern>
+	</servlet-mapping>
+	<!-- 进入编辑员工信息 -->
+	<servlet>
+		<servlet-name>UserUpdateServlet</servlet-name>
+		<servlet-class>com.yao.servlet.userservlet.UserUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserUpdateServlet</servlet-name>
+		<url-pattern>/UserUpdateServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现编辑员工信息 -->
+	<servlet>
+		<servlet-name>UserUpdateServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.userservlet.UserUpdateServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserUpdateServlet2</servlet-name>
+		<url-pattern>/UserUpdateServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 进入客户详情 -->
+	<servlet>
+		<servlet-name>UserQueryMoreServlet</servlet-name>
+		<servlet-class>com.yao.servlet.userservlet.UserQueryMoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserQueryMoreServlet</servlet-name>
+		<url-pattern>/UserQueryMoreServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 删除员工信息 -->
+	<servlet>
+		<servlet-name>UserDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.userservlet.UserDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserDeleteServlet</servlet-name>
+		<url-pattern>/UserDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入与查询房屋信息 -->
+	<servlet>
+		<servlet-name>HouseQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.houseservlet.HouseQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseQueryServlet</servlet-name>
+		<url-pattern>/HouseQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入添加房屋信息 -->
+	<servlet>
+		<servlet-name>HouseAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.houseservlet.HouseAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseAddServlet</servlet-name>
+		<url-pattern>/HouseAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加房屋信息 -->
+	<servlet>
+		<servlet-name>HouseAddServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.houseservlet.HouseAddServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseAddServlet2</servlet-name>
+		<url-pattern>/HouseAddServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 进入修改房屋信息 -->
+	<servlet>
+		<servlet-name>HouseUpdateServlet</servlet-name>
+		<servlet-class>com.yao.servlet.houseservlet.HouseUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseUpdateServlet</servlet-name>
+		<url-pattern>/HouseUpdateServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现修改房屋信息 -->
+	<servlet>
+		<servlet-name>HouseUpdateServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.houseservlet.HouseUpdateServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseUpdateServlet2</servlet-name>
+		<url-pattern>/HouseUpdateServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 实现删除房屋信息 -->
+	<servlet>
+		<servlet-name>HouseDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.houseservlet.HouseDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseDeleteServlet</servlet-name>
+		<url-pattern>/HouseDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入与查找房屋类型 -->
+	<servlet>
+		<servlet-name>HouseTypeQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.housetypeservlet.HouseTypeQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseTypeQueryServlet</servlet-name>
+		<url-pattern>/HouseTypeQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加房屋类型 -->
+	<servlet>
+		<servlet-name>HouseTypeAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.housetypeservlet.HouseTypeAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseTypeAddServlet</servlet-name>
+		<url-pattern>/HouseTypeAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现删除房屋类型 -->
+	<servlet>
+		<servlet-name>HouseTypeDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.housetypeservlet.HouseTypeDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseTypeDeleteServlet</servlet-name>
+		<url-pattern>/HouseTypeDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入与查询部门信息 -->
+	<servlet>
+		<servlet-name>DepartmentQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.departmentservlet.DepartmentQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DepartmentQueryServlet</servlet-name>
+		<url-pattern>/DepartmentQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现删除部门信息 -->
+	<servlet>
+		<servlet-name>DepartmentDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.departmentservlet.DepartmentDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DepartmentDeleteServlet</servlet-name>
+		<url-pattern>/DepartmentDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入查看公告 -->
+	<servlet>
+		<servlet-name>NoticeQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.noticeservlet.NoticeQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NoticeQueryServlet</servlet-name>
+		<url-pattern>/NoticeQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入添加公告 -->
+	<servlet>
+		<servlet-name>NoticeAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.noticeservlet.NoticeAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NoticeAddServlet</servlet-name>
+		<url-pattern>/NoticeAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加公告 -->
+	<servlet>
+		<servlet-name>NoticeAddServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.noticeservlet.NoticeAddServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NoticeAddServlet2</servlet-name>
+		<url-pattern>/NoticeAddServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 实现删除公告 -->
+	<servlet>
+		<servlet-name>NoticeDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.noticeservlet.NoticeDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NoticeDeleteServlet</servlet-name>
+		<url-pattern>/NoticeDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入添加员工 -->
+	<servlet>
+		<servlet-name>UserAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.userservlet.UserAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserAddServlet</servlet-name>
+		<url-pattern>/UserAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加员工 -->
+	<servlet>
+		<servlet-name>UserAddServlet2</servlet-name>
+		<servlet-class>com.yao.servlet.userservlet.UserAddServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserAddServlet2</servlet-name>
+		<url-pattern>/UserAddServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加部门 -->
+	<servlet>
+		<servlet-name>AddDepartmentServlet</servlet-name>
+		<servlet-class>com.yao.servlet.departmentservlet.AddDepartmentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddDepartmentServlet</servlet-name>
+		<url-pattern>/AddDepartmentServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现添加角色 -->
+	<servlet>
+		<servlet-name>AddRoleServlet</servlet-name>
+		<servlet-class>com.yao.servlet.roleservlet.AddRoleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddRoleServlet</servlet-name>
+		<url-pattern>/AddRoleServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入角色查询 -->
+	<servlet>
+		<servlet-name>RoleQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.roleservlet.RoleQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoleQueryServlet</servlet-name>
+		<url-pattern>/RoleQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 实现删除角色 -->
+	<servlet>
+		<servlet-name>RoleDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.roleservlet.RoleDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoleDeleteServlet</servlet-name>
+		<url-pattern>/RoleDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入报表 -->
+	<servlet>
+		<servlet-name>ReportFormsQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.reportservlet.ReportFormsQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReportFormsQueryServlet</servlet-name>
+		<url-pattern>/ReportFormsQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 写邮件 -->
+	<servlet>
+		<servlet-name>writeEmailServlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.writeEmailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writeEmailServlet</servlet-name>
+		<url-pattern>/writeEmailServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 添加邮件 -->
+	<servlet>
+		<servlet-name>EmailAddServlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.EmailAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailAddServlet</servlet-name>
+		<url-pattern>/EmailAddServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 添加草稿 -->
+	<servlet>
+		<servlet-name>EmailCaoGaoSevlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.EmailCaoGaoSevlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailCaoGaoSevlet</servlet-name>
+		<url-pattern>/EmailCaoGaoSevlet</url-pattern>
+	</servlet-mapping>
+	<!-- 发件箱 -->
+	<servlet>
+		<servlet-name>EmailQueryServlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.EmailQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailQueryServlet</servlet-name>
+		<url-pattern>/EmailQueryServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 删除邮件 -->
+	<servlet>
+		<servlet-name>EmailDeleteServlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.EmailDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailDeleteServlet</servlet-name>
+		<url-pattern>/EmailDeleteServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 进入草稿箱 -->
+	<servlet>
+		<servlet-name>EmailQueryNoSendServlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.EmailQueryNoSendServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailQueryNoSendServlet</servlet-name>
+		<url-pattern>/EmailQueryNoSendServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 发送草稿 -->
+	<servlet>
+		<servlet-name>EmailUpdateSevlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.EmailUpdateSevlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailUpdateSevlet</servlet-name>
+		<url-pattern>/EmailUpdateSevlet</url-pattern>
+	</servlet-mapping>
+	<!-- 删除草稿 -->
+	<servlet>
+		<servlet-name>EmailDeleteNoSendServlet</servlet-name>
+		<servlet-class>com.yao.servlet.emailservlet.EmailDeleteNoSendServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailDeleteNoSendServlet</servlet-name>
+		<url-pattern>/EmailDeleteNoSendServlet</url-pattern>
+	</servlet-mapping>
+</web-app>
